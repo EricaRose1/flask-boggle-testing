@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>Choose letters in row, going any direction, that create words.</p>
+
+<table id="game">
+    <tbody>
+        {% for row in board %}
+        <tr>
+           {% for piece in row %} 
+            <td>{{piece}}</td>
+            {% endfor %}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<p>High Score:
+    <b>{{ highscore }}</b>
+    in {{ num_plays }} plays
+</p>
+
+<p>
+    Score: <b class="score">0</b>
+    Seconds Left: <b class="timer"></b>
+</p>
+
+<form method = 'POST' class = "add-word">
+    <label>Enter letters:</label>
+    <input type="text" id="word" name="word">
+    <button>Enter</button>
+</form>
+
+<p class = 'msg'>
+    <!-- JS will put messages here dynamically -->
+</p>
+
+<ul class="words">
+    <!-- js put words here as they score -->
+</ul>
+{% endblock %}
